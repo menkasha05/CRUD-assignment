@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Table, Button } from "react-bootstrap";
-import { withRouter, Link } from "react-router-dom";
+//import { withRouter } from "react-router-dom";
 
 import { connect } from "react-redux";
 import {
@@ -101,4 +101,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(ProductList));
+)(ProductList);

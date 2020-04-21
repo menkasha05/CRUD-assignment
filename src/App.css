@@ -1,0 +1,19 @@
+* {
+margin:0;
+padding:0;
+box-sizing:border-box
+}
+
+.bgimg{
+  background-image:  linear-gradient( #d3d1ec 40%,rgb(192, 240, 236) 60%);
+   height: 100vh;
+   width: 100%;
+   background-position: center;
+   background: cover;
+   background-size: 10%;
+}
+
+.navbar{
+  height: 10vh;
+   width: 100%;
+}

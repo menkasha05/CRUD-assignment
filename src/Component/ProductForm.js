@@ -8,19 +8,14 @@ class ProductForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id:this.props.location.state?this.props.location.state.id: "",
       userId:this.props.location.state?this.props.location.state.userId: "",
       title:this.props.location.state?this.props.location.state.title:"",
       body:this.props.location.state?this.props.location.state.body: ""
     };
+    console.log(this.state)
     
-    // if(this.props.history!==null){
-    //   this.state=this.props.location.state
-    //   console.log(this.state)
-    // }
-    // else {
-    //   this.state=this.state
-    //   console.log(this.state)
-    // }
+    
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
@@ -87,8 +82,6 @@ class ProductForm extends Component {
     );
   }
 }
-
-
 const mapDispatchToProps = (dispatch) => {
   return {
     handleAddSubmit: (input) => dispatch(addProductAction(input)),
@@ -96,3 +89,5 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 export default connect(null, mapDispatchToProps)(ProductForm);
+
+

@@ -18,8 +18,6 @@ const Reducer = (state = istate, action) => {
       state.product.push(action.payload)
       var p = [...state.product]
       return {...state, product: p};
-     // return [...state,action.payload]
-
     case "DELETE_PRODUCT":
       console.log(action.payload)
       if (state.product===null)
@@ -28,13 +26,19 @@ const Reducer = (state = istate, action) => {
         state.product=[]
       }
        var p= state.product.filter((item) => item.id !== action.payload)
-      //  console.log(p)
+      
        state.product.push(p)
       return {...state,product:p}
-      //  {...state, product: p};
+    
 
     case "EDIT_PRODUCT":
-      return { ...state, editProduct: action.payload };
+     
+      var p=state.product
+       console.log(p)
+
+       p[action.payload.id-1]=action.payload
+     
+      return {...state,product:p}
 
     default:
       return state;

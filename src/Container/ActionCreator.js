@@ -1,9 +1,3 @@
-// export const handleState = (input) => {
-//   return {
-//     type: "HANDLE_PRODUCT",
-//     payload: input
-//   };
-// };
 
 export const addProductAction = (input) => {
   console.log(input);
@@ -45,18 +39,19 @@ export const deleteProductAction = (id) => {
 };
 
 export const editProductAction = (input) => {
-  console.log(input);
   return (dispatch) => {
-    fetch('https://jsonplaceholder.typicode.com/posts/1', {
+    fetch(`https://jsonplaceholder.typicode.com/posts/${input.id}`, {
       method: "PUT",
       body: JSON.stringify(input),
       headers: {
-        "Content-type": "application/json; charset=UTF-8",
+        "Content-type": "application/json; charset=UTF-8"
       },
     })
       .then((response) => response.json())
-      .then((response) =>
-        dispatch({ type: "EDIT_PRODUCT", payload: response })
-      );
+      .then((response) =>{console.log(response)
+        dispatch({ type: "EDIT_PRODUCT", payload: response })}
+
+      )
+      .catch(error=> console.log({error}));
   };
 };
